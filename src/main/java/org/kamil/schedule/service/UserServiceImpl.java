@@ -2,7 +2,9 @@ package org.kamil.schedule.service;
 
 
 import org.kamil.schedule.model.User;
+import org.kamil.schedule.model.UserRole;
 import org.kamil.schedule.repository.UserRepository;
+import org.kamil.schedule.repository.UserRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private UserRoleRepository userRoleRepository;
 
     @PersistenceContext
     EntityManager entityManager;
@@ -38,4 +43,16 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
     }
 
-   }
+    @Override
+    public Long findRoleIdByUsername(String username) {
+        User user = userRepository.findUserByUsername(username);
+        UserRole userRole = userRoleRepository.findAllByUser(user).get(0);
+
+        Long roleId = userRole.getRole().getId();
+
+        return roleId;
+
+    }
+
+
+}
