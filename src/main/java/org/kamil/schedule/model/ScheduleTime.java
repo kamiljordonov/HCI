@@ -9,6 +9,7 @@ import org.kamil.schedule.model.enums.ScheduleType;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.sql.Time;
 
 @Entity
 @AllArgsConstructor
@@ -21,6 +22,10 @@ public class ScheduleTime {
     private Long Id;
 
     private ScheduleType type;
+
+    private Time start;
+
+    private Time finish;
 
 
 }

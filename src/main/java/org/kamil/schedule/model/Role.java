@@ -4,7 +4,6 @@ package org.kamil.schedule.model;
 import lombok.*;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
@@ -15,7 +14,6 @@ import javax.persistence.Id;
 public class Role {
 
     @Id
-    @GeneratedValue
     private Long id;
 
     private String name;
