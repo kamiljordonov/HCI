@@ -1,51 +1,63 @@
 package org.kamil.schedule.service;
 
-import org.kamil.schedule.model.Account;
-import org.kamil.schedule.model.Role;
-import org.kamil.schedule.repository.AccountRepository;
+import org.kamil.schedule.model.UserRole;
+import org.kamil.schedule.repository.UserRepository;
+import org.kamil.schedule.repository.UserRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Service
-@Transactional
 public class MyUserDetailsService implements UserDetailsService {
 
+//    @Autowired
+//    private UserDao userDao;
+
+//    @Autowired
+//    private RoleDao roleDao;
+
     @Autowired
-    private AccountRepository userRepository;
+    UserRepository userRepository;
 
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Account user = userRepository.findByUsername(username);
+    @Autowired
+    UserRoleRepository userRoleRepository;
+
+    @Override
+    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
+        org.kamil.schedule.model.User user = this.userRepository.findUserByUsername(userName);
+
         if (user == null) {
-            throw new UsernameNotFoundException("No user found with username: " + username);
+            System.out.println("User not found! " + userName);
+            throw new UsernameNotFoundException("User " + userName + " was not found in the database");
         }
-        boolean enabled = true;
-        boolean accountNonExpired = true;
-        boolean credentialsNonExpired = true;
-        boolean accountNonLocked = true;
 
-        List<String> roles = new ArrayList<>();
-        roles.add(user.getRole().getName());
+        System.out.println("Found User: " + user);
 
-        return new org.springframework.security.core.userdetails.User(
-                user.getUsername(), user.getPassword().toLowerCase(), enabled, accountNonExpired,
-                credentialsNonExpired, accountNonLocked, getAuthorities(roles));
-    }
+        // [ROLE_USER, ROLE_ADMIN,..]
+//        List<String> roleNames = this.roleDao.getRoleNames(((com.app.pharmacy.apteka.model.User) user).getId());
 
-    private static List<GrantedAuthority> getAuthorities (List<String> roles) {
-        List<GrantedAuthority> authorities = new ArrayList<>();
-        for (String role : roles) {
-            authorities.add(new SimpleGrantedAuthority(role));
+        List<UserRole> userRoles = userRoleRepository.findAllByUser(((org.kamil.schedule.model.User) user));
+
+        List<GrantedAuthority> grantList = new ArrayList<GrantedAuthority>();
+        if (userRoles != null) {
+            for (UserRole userRole : userRoles) {
+                // ROLE_USER, ROLE_ADMIN,..
+                GrantedAuthority authority = new SimpleGrantedAuthority(userRole.getRole().getName());
+                grantList.add(authority);
+            }
         }
-        return authorities;
+
+        UserDetails userDetails = (UserDetails) new User(user.getUsername(), //
+                ((org.kamil.schedule.model.User) user).getPassword(), grantList);
+
+        return userDetails;
     }
 }

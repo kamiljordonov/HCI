@@ -26,10 +26,10 @@ public class Lecture {
     private String name;
 
     @ManyToOne
-    private Account teacher;
+    private User teacher;
 
     @ManyToOne
-    private Account student;
+    private User student;
 
 
 }
