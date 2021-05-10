@@ -8,6 +8,8 @@ import lombok.Setter;
 import org.kamil.schedule.model.enums.ScheduleType;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.sql.Time;
 
@@ -19,6 +21,7 @@ import java.sql.Time;
 public class ScheduleTime {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long Id;
 
     private ScheduleType type;

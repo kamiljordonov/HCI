@@ -24,12 +24,16 @@
                     <li th:unless="${@userService.findRoleIdByUsername(#authentication.name) != 1}"><a title="Categories" th:href="@{/shedule}" aria-expanded="false" style="background: #715EE7"><i
                             class="fa big-icon fa-files-o icon-wrap sub-icon-mg" aria-hidden="true"></i> <span
                             class="mini-click-non">Schedule</span></a></li>
-                    <li th:unless="${@userService.findRoleIdByUsername(#authentication.name) != 1}"><a title="Categories" th:href="@{/category/list}" aria-expanded="false" style="background: #715EE7"><i
+                    <li th:unless="${@userService.findRoleIdByUsername(#authentication.name) != 1}"><a title="Categories" th:href="@{/schedule/times}" aria-expanded="false" style="background: #715EE7"><i
                             class="fa big-icon fa-files-o icon-wrap sub-icon-mg" aria-hidden="true"></i> <span
                             class="mini-click-non">Schedule Times</span></a></li>
-                    <li th:unless="${@userService.findRoleIdByUsername(#authentication.name) != 1}"><a title="Categories" th:href="@{/category/list}" aria-expanded="false" style="background: #715EE7"><i
+                    <li th:unless="${@userService.findRoleIdByUsername(#authentication.name) != 1}"><a title="Categories" th:href="@{/lectures}" aria-expanded="false" style="background: #715EE7"><i
                             class="fa big-icon fa-files-o icon-wrap sub-icon-mg" aria-hidden="true"></i> <span
                             class="mini-click-non">Lectures</span></a></li>
+                    <li th:unless="${@userService.findRoleIdByUsername(#authentication.name) != 1}"><a title="Categories" th:href="@{/subjects}" aria-expanded="false" style="background: #715EE7"><i
+                            class="fa big-icon fa-files-o icon-wrap sub-icon-mg" aria-hidden="true"></i> <span
+                            class="mini-click-non">Lectures</span></a></li>
+
 
 
 
