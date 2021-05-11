@@ -25,11 +25,17 @@ download below video to view the tutorial with user guide
 
 ![Kazam_screencast_00000.mp4](Kazam_screencast_00000.mp4)
 
-###FIgma link
+CREDENTIALS FOR ADMIN USER
+
+login: admin
+
+password: admin
+
+### FIgma link
 
 https://www.figma.com/file/icb6a26PfBFqBfnsH0EbLe/Schedule?node-id=0%3A1
 
-###Trello link and screenshot
+### Trello link and screenshot
 
 
 https://trello.com/b/nkx17kpZ
