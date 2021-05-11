@@ -75,58 +75,6 @@
 
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="product-statas-wrap">
-                        <div class="add-product">
-                            <a data-toggle="modal" data-target="#modalLoginForm" class="btn">Add schedule</a>
-                        </div>
-                        <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                             aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header text-center">
-                                        <h4 class="modal-title w-100 font-weight-bold">ADD SUBJECT</h4>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <form th:action="@{/schedule/add}" method="post" th:object="${schedule}">
-                                        <div class="modal-body mx-3">
-                                            <div class="md-form mb-5">
-                                                <label data-error="wrong" data-success="right" for="selectTime">Name</label>
-                                                <select th:field="*{scheduleTime}" id="selectTime" class="form-control validate">
-                                                    <option label="Choose Time" value="bla"></option>
-                                                    <option th:each="scheduleTime : ${scheduleTimes}" th:value="${scheduleTime.id}" th:label="${scheduleTime.start + ' - ' + scheduleTime.finish}">mark</option>
-                                                </select>
-                                            </div>
-                                            <div class="md-form mb-5">
-                                                <label data-error="wrong" data-success="right" for="selectLecture">Name</label>
-                                                <select th:field="*{lecture}" id="selectLecture" class="form-control validate">
-                                                    <option label="Choose Lecture" value="bla"></option>
-                                                    <option th:each="lecture : ${lectures}" th:value="${lecture.id}" th:label="${lecture.name}">mark</option>
-                                                </select>
-                                            </div>
-                                            <div class="md-form mb-5">
-                                                <label data-error="wrong" data-success="right" for="selectTeacher">Name</label>
-                                                <select th:field="*{dayOfWeek}" id="selectTeacher" class="form-control validate">
-                                                    <option label="Choose Day" value="bla"></option>
-                                                    <option th:each="day : ${days}" th:value="${day}" th:label="${day.name()}">mark</option>
-                                                </select>
-                                            </div>
-
-
-
-
-
-                                        </div>
-                                        <div class="modal-footer d-flex justify-content-center">
-                                            <button type="submit" class="btn btn-default">ADD</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
                     <div class="product-status-wrap">
 
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -285,67 +233,67 @@
                         </div>
 
 
+                    </div>
+
+
                 </div>
-
-
             </div>
         </div>
+        <!--Footer -->
+
     </div>
-    <!--Footer -->
-
-</div>
 
 
 
-<!-- jquery
-		============================================ -->
-<script th:src="@{/js/vendor/jquery-1.11.3.min.js}"></script>
+    <!-- jquery
+            ============================================ -->
+    <script th:src="@{/js/vendor/jquery-1.11.3.min.js}"></script>
 
 
-<!-- bootstrap JS
-    ============================================ -->
-<script th:src="@{/js/bootstrap.min.js}"></script>
-<!-- wow JS
-    ============================================ -->
-<script th:src="@{/js/wow.min.js}"></script>
-<!-- price-slider JS
-    ============================================ -->
-<script th:src="@{/js/jquery-price-slider.js}"></script>
-<!-- meanmenu JS
-    ============================================ -->
-<script th:src="@{/js/jquery.meanmenu.js}"></script>
-<!-- owl.carousel JS
-    ============================================ -->
-<script th:src="@{/js/owl.carousel.min.js}"></script>
-<!-- sticky JS
-    ============================================ -->
-<script th:src="@{/js/jquery.sticky.js}"></script>
-<!-- scrollUp JS
-    ============================================ -->
-<script th:src="@{/js/jquery.scrollUp.min.js}"></script>
-<!-- mCustomScrollbar JS
-    ============================================ -->
-<script th:src="@{/js/scrollbar/jquery.mCustomScrollbar.concat.min.js}"></script>
-<script th:src="@{/js/scrollbar/mCustomScrollbar-active.js}"></script>
-<!-- metisMenu JS
-    ============================================ -->
-<script th:src="@{/js/metisMenu/metisMenu.min.js}"></script>
-<script th:src="@{/js/metisMenu/metisMenu-active.js}"></script>
-<!-- morrisjs JS
-    ============================================ -->
-<script th:src="@{/js/sparkline/jquery.sparkline.min.js}"></script>
-<script th:src="@{/js/sparkline/jquery.charts-sparkline.js}"></script>
-<!-- calendar JS
-    ============================================ -->
-<script th:src="@{/js/calendar/moment.min.js}"></script>
-<script th:src="@{/js/calendar/fullcalendar.min.js}"></script>
-<script th:src="@{/js/calendar/fullcalendar-active.js}"></script>
-<!-- plugins JS
-    ============================================ -->
-<script th:src="@{/js/plugins.js}"></script>
-<!-- main JS
-    ============================================ -->
-<script th:src="@{/js/main.js}"></script>
+    <!-- bootstrap JS
+        ============================================ -->
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <!-- wow JS
+        ============================================ -->
+    <script th:src="@{/js/wow.min.js}"></script>
+    <!-- price-slider JS
+        ============================================ -->
+    <script th:src="@{/js/jquery-price-slider.js}"></script>
+    <!-- meanmenu JS
+        ============================================ -->
+    <script th:src="@{/js/jquery.meanmenu.js}"></script>
+    <!-- owl.carousel JS
+        ============================================ -->
+    <script th:src="@{/js/owl.carousel.min.js}"></script>
+    <!-- sticky JS
+        ============================================ -->
+    <script th:src="@{/js/jquery.sticky.js}"></script>
+    <!-- scrollUp JS
+        ============================================ -->
+    <script th:src="@{/js/jquery.scrollUp.min.js}"></script>
+    <!-- mCustomScrollbar JS
+        ============================================ -->
+    <script th:src="@{/js/scrollbar/jquery.mCustomScrollbar.concat.min.js}"></script>
+    <script th:src="@{/js/scrollbar/mCustomScrollbar-active.js}"></script>
+    <!-- metisMenu JS
+        ============================================ -->
+    <script th:src="@{/js/metisMenu/metisMenu.min.js}"></script>
+    <script th:src="@{/js/metisMenu/metisMenu-active.js}"></script>
+    <!-- morrisjs JS
+        ============================================ -->
+    <script th:src="@{/js/sparkline/jquery.sparkline.min.js}"></script>
+    <script th:src="@{/js/sparkline/jquery.charts-sparkline.js}"></script>
+    <!-- calendar JS
+        ============================================ -->
+    <script th:src="@{/js/calendar/moment.min.js}"></script>
+    <script th:src="@{/js/calendar/fullcalendar.min.js}"></script>
+    <script th:src="@{/js/calendar/fullcalendar-active.js}"></script>
+    <!-- plugins JS
+        ============================================ -->
+    <script th:src="@{/js/plugins.js}"></script>
+    <!-- main JS
+        ============================================ -->
+    <script th:src="@{/js/main.js}"></script>
 </body>
 
 </html>

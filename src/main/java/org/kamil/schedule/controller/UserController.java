@@ -91,11 +91,13 @@ public class UserController {
     @RequestMapping("user/{id}/profile")
     public String getUserProfilePage(ModelMap model, @PathVariable("id") long id){
         User user = userRepository.getOne(id);
+        UserRole userRole = userRoleRepository.findAllByUser(user).get(0);
         String baseQuery = "select * from product where user_id="+id;
         Query query=entityManager.createNativeQuery(baseQuery, Product.class);
         List<Product> products = query.getResultList();
         model.addAttribute("user", user);
         model.addAttribute("products", products);
+        model.addAttribute("role", userRole.getRole());
         return "blog-details";
     }
 }
