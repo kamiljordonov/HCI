@@ -21,7 +21,7 @@ https://kamilschedule.herokuapp.com
 
 ## User Guide
 
-
+![Kazam_screencast_00000.mp4](Kazam_screencast_00000.mp4)
 
 ###FIgma link
 
@@ -32,3 +32,4 @@ https://www.figma.com/file/icb6a26PfBFqBfnsH0EbLe/Schedule?node-id=0%3A1
 
 https://trello.com/b/nkx17kpZ
 
+![1.png](1.png)
