@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
@@ -54,5 +56,18 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    @Override
+    public List<User> findTeachers() {
 
+        List<UserRole> userRoles = userRoleRepository.findAllByRoleId(Long.valueOf(2));
+
+        List<User> teachers = new ArrayList<>();
+
+        for(UserRole userRole: userRoles){
+            teachers.add(userRole.getUser());
+        }
+
+        return teachers;
+
+    }
 }

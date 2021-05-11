@@ -83,25 +83,14 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Code</th>
                                 <th scope="col">Name</th>
-                                <th scope="col">Lecturer</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
+                            <tr th:each="lecture : ${lectures}">
                                 <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>bal</td>
+                                <td th:text="${lecture.code}">Mark</td>
+                                <td th:text="${lecture.name}">Otto</td>
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                                <td>bal</td>
-                            </tr>
-
                             </tbody>
                         </table>
 

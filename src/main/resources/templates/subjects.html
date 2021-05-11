@@ -82,25 +82,27 @@
                             <a data-toggle="modal" data-target="#modalLoginForm" class="btn">Add subject</a>
                         </div>
 
-                        <table class="table-striped" th:>
+                        <table class="table-striped">
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Code</th>
                                 <th scope="col">Name</th>
+                                <th scope="col">Teacher</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr th:each="sub:${subs}">
-                                <th scope="row">1</th>
-                                <td><p th:text="${sub.code}"/></td>
-                                <td><p th:text="${sub.name}"/></td>
+                            <tr th:each="lecture:${lectures}">
+                                <th scope="row" th:text="${lectureStat.index + 1}">1</th>
+                                <td><p th:text="${lecture.code}"/></td>
+                                <td><p th:text="${lecture.name}"/></td>
+                                <td><p th:text="${lecture.getTeacher().getfName() + ' ' + lecture.getTeacher().getlName()}"/></td>
                             </tr>
 
                             </tbody>
                         </table>
 
-                        <!--<div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                        <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                              aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -113,13 +115,21 @@
                                     <form th:action="@{/subject/add}" method="post" th:object="${subject}">
                                         <div class="modal-body mx-3">
                                             <div class="md-form mb-5">
-                                                <input type="text" name="code" id="subjectCode" class="form-control validate">
                                                 <label data-error="wrong" data-success="right" for="subjectCode">Code</label>
+                                                <input type="text" name="code" id="subjectCode" class="form-control validate">
                                             </div>
                                             <div class="md-form mb-5">
-                                                <input type="text" name="name" id="subjectName" class="form-control validate">
                                                 <label data-error="wrong" data-success="right" for="subjectName">Name</label>
+                                                <input type="text" name="name" id="subjectName" class="form-control validate">
                                             </div>
+                                            <div class="md-form mb-5">
+                                                <label data-error="wrong" data-success="right" for="selectTeacher">Name</label>
+                                                <select th:field="*{teacher}" id="selectTeacher" class="form-control validate">
+                                                    <option label="Choose Teacher" value="0"></option>
+                                                    <option th:each="teacher : ${teachers}" th:value="${teacher.getId()}" th:label="${teacher.getfName() + ' ' + teacher.getlName()}">mark</option>
+                                                </select>
+                                            </div>
+
 
 
 
@@ -131,7 +141,7 @@
                                     </form>
                                 </div>
                             </div>
-                        </div>-->
+                        </div>
 
                     </div>
 
@@ -141,7 +151,6 @@
         </div>
     </div>
     <!--Footer -->
-    <div th:replace="@{layout/footer.html}"></div>
 </div>
 
 
