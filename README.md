@@ -21,6 +21,8 @@ https://kamilschedule.herokuapp.com
 
 ## User Guide
 
+download below video to view the tutorial with user guide
+
 ![Kazam_screencast_00000.mp4](Kazam_screencast_00000.mp4)
 
 ###FIgma link
